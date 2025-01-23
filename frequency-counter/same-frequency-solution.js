@@ -1,24 +1,21 @@
-/*Write a function sameFrequency(num1, num2) that takes in two positive integers. The function 
-should return true if the two numbers have the same frequency of digits, and false otherwise.*/
-
 function sameFrequency(num1, num2) {
-	const num1ToString = num1.toString();
-	const num2ToString = num2.toString();
+	const number1String = num1.toString();
+	const number2String = num2.toString();
 
-	if (num1.length !== num2.length) return false;
+	if (number1String.length !== number2String.length) {
+		return false;
+	}
 
 	const frequencyCounter = {};
-
-	for (let i = 0; i < num1ToString.length; i++) {
-		let number = num1ToString[i];
+	for (let i = 0; i < number1String.length; i++) {
+		let number = number1String[i];
 		frequencyCounter[number]
 			? (frequencyCounter[number] += 1)
 			: (frequencyCounter[number] = 1);
 	}
 
-	for (let i = 0; i < num2ToString.length; i++) {
-		let number = num2ToString[i];
-
+	for (let i = 0; i < number2String.length; i++) {
+		let number = number2String[i];
 		if (!frequencyCounter[number]) {
 			return false;
 		} else {
