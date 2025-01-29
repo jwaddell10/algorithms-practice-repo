@@ -1,7 +1,9 @@
 /* Write a function called binarySearch which accepts a sorted array and a 
 value and returns the index at which the value exists. Otherwise, return -1. */
 
-function binarySearch() {}
+function binarySearch() {
+
+}
 
 // console.log(binarySearch([1, 2, 3, 4, 5], 2)); // 1)
 console.log(binarySearch([1, 2, 3, 4, 5], 3)); // 2
