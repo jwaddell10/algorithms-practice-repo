@@ -2,6 +2,7 @@
 value and returns the index at which the value exists. Otherwise, return -1. */
 
 function binarySearch(arr, elem) {
+	
 }
 
 console.log(binarySearch([1, 2, 3, 4, 5], 5)); // 4

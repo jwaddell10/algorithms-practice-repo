@@ -1,4 +1,5 @@
 function naiveSearch(long, short) {
+    
 }
 
 console.log(naiveSearch("lorie loled", "lol"));

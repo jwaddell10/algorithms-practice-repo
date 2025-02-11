@@ -4,6 +4,7 @@ of whole numbers 1, 1, 2, 3, 5, 8, ... which starts with 1 and 1, and where ever
 number thereafter is equal to the sum of the previous two numbers.*/
 
 function fib(num) {
+    //good on this one!!
 }
 //1, 2, 3
 //17, 15, 11
