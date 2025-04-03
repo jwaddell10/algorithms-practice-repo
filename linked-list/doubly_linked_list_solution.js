@@ -113,7 +113,7 @@ class DoublyLinkedList {
 	}
 
 	insert(index, val) {
-		if (index < 0 || index >= this.length) return false;
+		if (index < 0 || index > this.length) return false;
 		if (index === 0) return this.unshift(val);
 		if (index === this.length) return this.push(val)
 
@@ -133,7 +133,6 @@ class DoublyLinkedList {
 		if (index === 0) return this.shift();
 		if (index === this.length - 1) return this.pop();
 		let removedNode = this.get(index);
-		console.log(removedNode, 'node to remove')
 		removedNode.prev.next = removedNode.next;
 		removedNode.next.prev = removedNode.prev;
 		removedNode.prev = null;
