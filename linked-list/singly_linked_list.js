@@ -105,7 +105,7 @@ class SinglyLinkedList {
 		let prev = this.get(index - 1);
 		let temp = prev.next;
 		let newNode = new Node(val);
-		
+
 		prev.next = newNode;
 		newNode.next = temp;
 
@@ -114,31 +114,31 @@ class SinglyLinkedList {
 		return true;
 	}
 
-    remove(index) {
-        if (index < 0 || index >= this.length) return undefined;
+	remove(index) {
+		if (index < 0 || index >= this.length) return undefined;
 		if (index === 0) return this.shift();
 		if (index === this.length) return this.pop();
 
-        let prev = this.get(index - 1);
-        let removed = prev.next;
-        prev.next = removed.next;
-        this.length--;
-        return removed;
-    }
+		let prev = this.get(index - 1);
+		let removed = prev.next;
+		prev.next = removed.next;
+		this.length--;
+		return removed;
+	}
 
-    reverse() {
-		let currentNode = this.head;
+	reverse() {
+		let current = this.head;
 		this.head = this.tail;
-		this.tail = currentNode;
+		this.tail = current;
 
 		let next = null;
 		let prev = null;
 
 		for (let i = 0; i < this.length; i++) {
-			next = currentNode.next;
-			currentNode.next = prev;
-			prev = currentNode;
-			currentNode = next;
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
 		}
 
 		return this;
@@ -150,7 +150,7 @@ list.push(1);
 list.push(2);
 list.push(3);
 list.push(4);
-console.log(list.reverse());
+console.log(list.reverse(), 'reverse');
 // console.log(list.insert(3, 'insert'), 'list get')
 
 // console.log(list.reverse(), "list reverse");
