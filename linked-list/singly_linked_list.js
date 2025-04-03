@@ -128,7 +128,7 @@ class SinglyLinkedList {
 
     reverse() {
 		let currentNode = this.head;
-		this.head = this.tail
+		this.head = this.tail;
 		this.tail = currentNode;
 
 		let next = null;
@@ -138,7 +138,7 @@ class SinglyLinkedList {
 			next = currentNode.next;
 			currentNode.next = prev;
 			prev = currentNode;
-			node = next;
+			currentNode = next;
 		}
 
 		return this;
@@ -146,10 +146,10 @@ class SinglyLinkedList {
 }
 
 const list = new SinglyLinkedList();
-list.push("Hello");
-list.push("goodbye");
-list.push("welcome");
-list.push("hi");
+list.push(1);
+list.push(2);
+list.push(3);
+list.push(4);
 console.log(list.reverse());
 // console.log(list.insert(3, 'insert'), 'list get')
 

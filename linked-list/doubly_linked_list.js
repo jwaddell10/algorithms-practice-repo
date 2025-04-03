@@ -14,42 +14,42 @@ class DoublyLinkedList {
 	}
 
 	push(val) {
+		//add to end
 		let newNode = new Node(val);
-
 		if (!this.head) {
 			this.head = newNode;
 			this.tail = newNode;
-			this.length++;
 		} else {
 			this.tail.next = newNode;
 			newNode.prev = this.tail;
 			this.tail = newNode;
-			this.length++;
 		}
-
+		this.length++;
 		return this;
 	}
 
 	pop() {
-		if (!this.tail) {
-			return undefined;
-		}
+		if (!this.tail) return undefined;
+
 		let poppedNode = this.tail;
 
 		if (this.length === 1) {
 			this.head = null;
 			this.tail = null;
 		} else {
-			this.tail = poppedNode.prev;
-			this.tail.next = null;
-			poppedNode.prev = null;
+			let prev = this.tail.prev;
+			prev.next = null;
+			this.tail = prev;
 		}
+
 		this.length--;
+		poppedNode.prev = null;
 		return poppedNode;
 	}
 
 	shift() {
 		if (!this.head) return undefined;
+
 		let oldHead = this.head;
 
 		if (this.length === 1) {
@@ -63,21 +63,6 @@ class DoublyLinkedList {
 			return oldHead;
 		}
 	}
-
-	unshift(val) {
-		let newNode = new Node(val);
-		if (this.length === 0) {
-			this.head = newNode;
-			this.tail = newNode;
-		} else {
-			this.head.prev = newNode;
-			newNode.next = this.head;
-			this.head = newNode;
-		}
-
-		this.length++;
-		return this;
-	}
 }
 
 let list = new DoublyLinkedList();
@@ -85,6 +70,7 @@ let list = new DoublyLinkedList();
 list.push(1);
 list.push(2);
 list.push(99);
-console.log(list.unshift("unshift"));
+console.log(list.pop(), "pop node");
 
+// list.remove(1);
 console.log(list);
