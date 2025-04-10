@@ -15,133 +15,49 @@ class SinglyLinkedList {
 	}
 
 	push(val) {
-		let newNode = new Node(val);
-
-		if (!this.head) {
-			this.head = newNode;
-			this.tail = newNode;
-			this.length++;
-			return this;
-		}
-
-		this.tail.next = newNode;
-		this.tail = newNode;
-		this.length++;
-
-		return this;
-	}
-
-	pop() {
-		//tail needs to be null
-		//new tail needs to be created
-
-		if (!this.head) return undefined;
-		let current = this.head;
-		let newTail = current;
-
-		while (current.next) {
-			newTail = current;
-			current = current.next;
-		}
-
-		this.tail = newTail;
-		this.tail.next = null;
-		this.length--;
-
-		if (this.length === 0) {
-			this.head = null;
-			this.tail = null;
-		}
-		return current;
-	}
-
-	shift() {
-		if (!this.head) return false;
-
-		let removed = this.head;
-		this.head = removed.next;
-		this.length--;
-
-		return removed;
-	}
-
-	unshift(val) {
-		let newNode = new Node(val);
+		const newNode = new Node(val);
 		if (!this.head) {
 			this.head = newNode;
 			this.tail = newNode;
 		} else {
-			newNode.next = this.head;
-			this.head = newNode;
+			this.tail.next = newNode;
+			this.tail = newNode;
 		}
 		this.length++;
 		return this;
 	}
 
+	reverse() {
+		if (!this.head) return undefined;
+		let newHead = this.head;
+		this.head = this.tail;
+		this.tail = newHead;
+
+		let next = null;
+		let prev = null;
+
+		while(newHead !== null) {
+			next = newHead.next;
+			newHead.next = prev;
+			prev = newHead;
+			newHead = next;
+		}
+
+		return this;
+	}
+
 	get(index) {
-		if (index < 0 || index >= this.length) return undefined;
+		if (index < 0 || index >= this.length) return false;
 
 		let counter = 0;
 		let current = this.head;
 
 		while (counter !== index) {
-			current = current.next;
 			counter++;
+			current = current.next;
 		}
 
 		return current;
-	}
-
-	set(index, val) {
-		let foundNode = this.get(index);
-		if (foundNode) {
-			foundNode.val = val;
-			return true;
-		}
-		return false;
-	}
-
-	insert(index, val) {
-		let prev = this.get(index - 1);
-		let temp = prev.next;
-		let newNode = new Node(val);
-
-		prev.next = newNode;
-		newNode.next = temp;
-
-		this.length++;
-
-		return true;
-	}
-
-	remove(index) {
-		if (index < 0 || index >= this.length) return undefined;
-		if (index === 0) return this.shift();
-		if (index === this.length) return this.pop();
-
-		let prev = this.get(index - 1);
-		let removed = prev.next;
-		prev.next = removed.next;
-		this.length--;
-		return removed;
-	}
-
-	reverse() {
-		let current = this.head;
-		this.head = this.tail;
-		this.tail = current;
-
-		let next = null;
-		let prev = null;
-
-		for (let i = 0; i < this.length; i++) {
-			next = current.next;
-			current.next = prev;
-			prev = current;
-			current = next;
-		}
-
-		return this;
 	}
 }
 
@@ -150,8 +66,7 @@ list.push(1);
 list.push(2);
 list.push(3);
 list.push(4);
-console.log(list.reverse(), 'reverse');
-// console.log(list.insert(3, 'insert'), 'list get')
+console.log(list.get(2), 'get')// console.log(list.insert(3, 'insert'), 'list get')
 
 // console.log(list.reverse(), "list reverse");
 console.log(list);
