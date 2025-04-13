@@ -1,1 +1,3 @@
-function sumRange(num) {}
+function sumRange(num) {
+    
+}
