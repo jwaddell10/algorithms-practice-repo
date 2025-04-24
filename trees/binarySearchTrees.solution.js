@@ -66,7 +66,7 @@ class BinarySearchTree {
 		data = [];
 		queue = [];
 		queue.push(this.root);
-		while(queue.length) {
+		while (queue.length) {
 			node = queue.shift();
 			data.push(node);
 			if (node.left) queue.push(node.left);
@@ -100,6 +100,18 @@ class BinarySearchTree {
 		}
 
 		traverse(current);
+		return visitedNodes;
+	}
+
+	DFSInOrder() {
+		let visitedNodes = [];
+
+		function traverse(node) {
+			if (node.left) traverse(node.left);
+			visitedNodes.push(node.value);
+			if (node.right) traverse(node.right);
+		}
+		traverse(this.root);
 		return visitedNodes;
 	}
 }
