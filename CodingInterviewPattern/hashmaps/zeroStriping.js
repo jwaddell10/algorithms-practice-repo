@@ -13,7 +13,6 @@ function zeroStriping(matrix) {
 		for (let j = 0; j < matrix[i].length; j++) {
 			if (rowSet.has(i) || colSet.has(j)) {
 				matrix[i][j] = 0;
-                console.log('matrix', matrix[i][j], 'i', i, 'j', j)
 			}
 		}
 	}

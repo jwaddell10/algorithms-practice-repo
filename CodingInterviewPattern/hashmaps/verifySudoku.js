@@ -1,30 +1,37 @@
 function verify_sudoku_board(board) {
 	for (let i = 0; i < 9; i++) {
-		let rows = new Set();
-		let cols = new Set();
-		let sq = new Set();
+		let row = new Set();
+		let col = new Set();
+		let box = new Set();
 
 		for (let j = 0; j < 9; j++) {
-			let boxIndex = Math.floor(i / 3) * 3 + Math.floor(j / 3);
-			// console.log(boxIndex, 'box')
-			if (board[i][j] === 0) continue;
-			if (board[j][i] === 0) continue;
+			let _row = board[i][j];
+			let _col = board[j][i];
+			let _box =
+				board[3 * Math.floor(i / 3) + Math.floor(j / 3)][
+					3 * (i % 3) + (j % 3)
+				];
 
-			for (let i = 0; i < 3; i++) {
-				for (let j = 0; j < 3; j++) {
-					if (sq.has(board[i][j])) {
-						return false;
-					} else sq.add(board[i][j]);
+			if (_row !== 0) {
+				if (row.has(_row)) {
+					return false;
 				}
+				row.add(_row);
 			}
 
-			if (rows.has(board[i][j])) {
-				return false;
-			} else rows.add(board[i][j]);
+			if (_col !== 0) {
+				if (col.has(_col)) {
+					return false;
+				}
+				col.add(_col);
+			}
 
-			if (cols.has(board[j][i])) {
-				return false;
-			} else cols.add(board[j][i]);
+			if (_box !== 0) {
+				if (box.has(_box)) {
+					return false;
+				}
+				box.add(_box);
+			}
 		}
 	}
 	return true;
