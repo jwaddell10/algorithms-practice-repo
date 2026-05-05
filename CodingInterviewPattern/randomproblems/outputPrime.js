@@ -14,7 +14,7 @@ P.S. The code should work for any n, not be hard-tuned for any fixed value.
 */
 
 function outputPrime(n) {
-	let primes = []
+	let primes = [];
 
 	for (let i = 2; i <= n; i++) {
 		let isPrime = true;
@@ -25,13 +25,11 @@ function outputPrime(n) {
 				break;
 			}
 		}
-
 		if (isPrime) {
-			primes.push(i)
+			primes.push(i);
 		}
 	}
-
 	return primes;
 }
 
-console.log(outputPrime(1000));
+console.log(outputPrime(100));
