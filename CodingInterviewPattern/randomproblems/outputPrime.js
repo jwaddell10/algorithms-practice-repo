@@ -18,7 +18,6 @@ function outputPrime(n) {
 
 	for (let i = 2; i <= n; i++) {
 		let isPrime = true;
-
 		for (let j = 2; j < i; j++) {
 			if (i % j === 0) {
 				isPrime = false;
@@ -29,7 +28,8 @@ function outputPrime(n) {
 			primes.push(i);
 		}
 	}
+
 	return primes;
 }
 
-console.log(outputPrime(100));
+console.log(outputPrime(25));
