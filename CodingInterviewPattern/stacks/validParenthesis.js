@@ -7,11 +7,15 @@ function isValidParentheses(str) {
 		"]": "[",
 	};
 
-	for (let char of str) {
-		if (char === "(" || char === "{" || char === "[") {
+	const openings = new Set(Object.values(pairs));
+
+	for (const char of str) {
+		if (openings.has(char)) {
 			stack.push(char);
 		} else {
-			if (stack.length === 0) return false;
+			if (!stack.length) {
+				return false;
+			}
 
 			const top = stack.pop();
 

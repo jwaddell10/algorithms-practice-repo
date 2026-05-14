@@ -18,6 +18,21 @@ class Stack {
 		}
         return this.count++
 	}
+
+    pop() {
+        if (stack.count === 0) return null;
+        let temp = this.first;
+        
+        if (stack.count === 1) {
+            this.first = null;
+            this.last = null;
+        } else {
+            this.first = this.first.next;
+        }
+        this.count--;
+        console.log(temp.value, 'temp from pop')
+        return temp.value;
+    }
 }
 
 class Node {
@@ -31,7 +46,9 @@ class Node {
 
 const stack = new Stack();
 
-stack.push(10);
-stack.push(20);
-stack.push(30);
-console.log(stack, "stack after push");
+stack.push(23);
+stack.push(230);
+stack.push(2301);
+stack.pop()
+stack.pop()
+stack.pop()
