@@ -1,12 +1,15 @@
 function is_palindrome_valid(s) {
 	const stack = [];
+
 	for (let i = 0; i < s.length; i++) {
 		if (!isAlphaNumeric(s[i])) continue;
 		stack.push(s[i]);
 	}
+
 	let cleaned = stack.join("");
 	let reversed = "";
-	while (stack.length > 0) {
+
+	while (stack.length) {
 		reversed += stack.pop();
 	}
 	return cleaned === reversed;
