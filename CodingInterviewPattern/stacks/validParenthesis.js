@@ -2,13 +2,15 @@ function isValidParentheses(str) {
 	const stack = [];
 
 	const pairs = {
-		"(": ")",
 		"{": "}",
 		"[": "]",
+		"(": ")",
 	};
 
 	const openings = new Set(Object.keys(pairs));
+
 	if (str.length === 0) return false;
+	
 	for (const char of str) {
 		if (openings.has(char)) {
 			stack.push(char);
@@ -16,11 +18,12 @@ function isValidParentheses(str) {
 			if (!stack.length) return false;
 
 			const top = stack.pop();
-			if (pairs[top] !== char) {
+			if (char !== pairs[top]) {
 				return false;
 			}
 		}
 	}
+
 	return stack.length === 0;
 }
 

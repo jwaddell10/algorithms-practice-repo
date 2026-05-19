@@ -36,4 +36,4 @@ function isValidParentheses(str) {
 
 console.log(isValidParentheses("([]{})")); //true
 console.log(isValidParentheses("([]{)}")); //false
-console.log(isValidParentheses(""))
+console.log(isValidParentheses("")) // false
