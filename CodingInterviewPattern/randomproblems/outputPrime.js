@@ -14,6 +14,27 @@ P.S. The code should work for any n, not be hard-tuned for any fixed value.
 */
 
 function outputPrime(n) {
+	//n
+
+	//loop through each number, do an inner lop to check it eh number is prime
+	let res = [];
+
+	for (let i = 2; i < n; i++) {
+		let isPrime = true;
+
+		for (let j = 2; j < i; j++) {
+			if (i % j === 0) {
+				isPrime = false;
+				break;
+			}
+		}
+
+		if (isPrime) {
+			res.push(i);
+		}
+	}
+	return res;
+	//return prime numbers in an array
 }
 
-console.log(outputPrime(25));
+console.log(outputPrime(50));
