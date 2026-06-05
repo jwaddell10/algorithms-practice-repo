@@ -1,11 +1,11 @@
-class Node {
+class ListNode {
 	constructor(val, next = null) {
 		this.val = val;
 		this.next = next;
 	}
 }
 
-const head = new Node(3, new Node(2, new Node(1)));
+const head = new ListNode(1, new ListNode(2, new ListNode(3)));
 
 function reverseLinkedList(head) {
 	let curr = head;
@@ -18,7 +18,7 @@ function reverseLinkedList(head) {
 		curr = next;
 	}
 
-    return prev;
+	return prev;
 }
 
-console.log(reverseLinkedList(head));
+console.log(reverseLinkedList(head))
