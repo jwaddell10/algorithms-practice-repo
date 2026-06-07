@@ -9,16 +9,24 @@ const head = new ListNode(1, new ListNode(2, new ListNode(3)));
 
 function reverseLinkedList(head) {
 	let curr = head;
-	let prev = null;
+	const stack = [];
 
 	while (curr) {
-		const next = curr.next;
-		curr.next = prev;
-		prev = curr;
-		curr = next;
+		stack.push(curr);
+		curr = curr.next;
 	}
 
-	return prev;
+
+	const newHead = stack.pop();
+	curr = newHead
+
+	while (stack.length) {
+		curr.next = stack.pop();
+		curr = curr.next;
+	}
+	
+	curr.next = null;
+	return newHead;
 }
 
-console.log(reverseLinkedList(head))
+console.log(reverseLinkedList(head));
