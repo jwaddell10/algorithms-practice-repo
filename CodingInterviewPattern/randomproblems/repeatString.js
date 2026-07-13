@@ -1,9 +1,9 @@
 function repeatString(str, n) {
     let newString = ""
-    for (let i = 0; i < str.length; i++) {
+    for (let i = 0; i < n; i++) {
         newString += str
     }
     return newString;
 }
 
-console.log(repeatString('hey', 3)) // 'heyheyhey'
+console.log(repeatString('hey', 5)) // 'heyheyhey'
